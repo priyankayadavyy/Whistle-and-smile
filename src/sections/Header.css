@@ -1,0 +1,141 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  /* Height ko auto kiya taaki banner aur nav dono fit ho sakein */
+  height: auto; 
+  background-color: var(--color-white);
+  z-index: 1000;
+  transition: box-shadow var(--transition-normal);
+}
+
+.header.scrolled {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* --- Main Navigation Container --- */
+
+.header-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 12px var(--space-lg); /* Fixed padding instead of 100% height */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-logo {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  font-family: 'Inter', sans-serif;
+}
+
+.logo-whistle {
+  font-size: 32px;
+  font-weight: 1000;
+  background: linear-gradient(135deg, var(--color-primary-gradient-start), var(--color-primary-gradient-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.5px;
+}
+
+.logo-and-smile {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--color-primary);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+/* --- Call Button with Smooth Hover Expansion --- */
+.header-phone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0; 
+  background-color: #8a5cf6; 
+  color: var(--color-white);
+  border-radius: 50px;
+  overflow: hidden; /* Taaki hidden text bahar na nikle */
+  cursor: pointer;
+  
+  /* Smooth transition width aur background ke liye */
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1), background-color var(--transition-normal);
+  white-space: nowrap; /* Text ko single line mein rakhne ke liye */
+  text-decoration: none;
+}
+
+/* Hover karne par button ki width badh jayegi */
+.header-phone:hover {
+  width: 160px; /* Number dikhane ke liye width auto-expand hogi */
+  padding: 0 16px;
+  justify-content: flex-start;
+  gap: 10px;
+  background-color: var(--color-primary-light, #7c3aed);
+}
+
+.header-phone-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0; /* Icon ka size compress na ho */
+  margin-left: 13px; /* Circle ke center mein align rakhne ke liye default margin */
+  transition: margin 0.3s ease;
+}
+
+.header-phone:hover .header-phone-icon {
+  margin-left: 0; /* Hover par margin reset */
+}
+
+/* Default state mein number chhipa rahega */
+.phone-number {
+  opacity: 0;
+  transform: translateX(-10px);
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  transition: opacity 0.3s ease 0.1s, transform 0.3s ease 0.1s; /* Thoda delay taaki width pehle khule */
+}
+
+/* Hover par number smooth tareeqe se fade-in hoga */
+.header-phone:hover .phone-number {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* --- Responsive Media Queries --- */
+@media (max-width: 768px) {
+  .header-container {
+    padding: 10px var(--space-md);
+  }
+  
+  .top-banner {
+    font-size: 11px;
+    padding: 6px var(--space-sm);
+  }
+
+  .logo-whistle {
+    font-size: 22px;
+  }
+  
+  /* Mobile par hover effect disable karke sirf normal circle rakh sakte hain */
+  .header-phone {
+    width: 38px;
+    height: 38px;
+  }
+  .header-phone:hover {
+    width: 38px;
+    padding: 0;
+  }
+  .header-phone .phone-number {
+    display: none;
+  }
+  .header-phone-icon {
+    margin-left: 0;
+  }
+}
+

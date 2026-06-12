@@ -1,0 +1,109 @@
+.booking-section {
+  padding: var(--space-3xl) 0;
+  background-color: var(--color-white);
+}
+
+.booking-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+.booking-radio {
+  margin-bottom: var(--space-2xl);
+}
+
+.booking-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--space-lg);
+  align-items: end;
+  margin-bottom: var(--space-lg);
+}
+
+.booking-checkbox-wrapper {
+  grid-column: 1 / -1;
+  margin-top: var(--space-sm);
+}
+
+/* Users display section */
+.booking-users-section {
+  margin-top: var(--space-3xl);
+  padding-top: var(--space-2xl);
+  border-top: 1px solid var(--color-border);
+}
+
+.booking-users-title {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.booking-users-title h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.booking-users-title p {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+.booking-users-filter {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xl);
+}
+
+.filter-btn {
+  padding: 8px 20px;
+  border-radius: var(--radius-full);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  border: 1px solid var(--color-border);
+  background: var(--color-white);
+  color: var(--color-text-secondary);
+}
+
+.filter-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.filter-btn.active {
+  background: var(--color-primary);
+  color: var(--color-white);
+  border-color: var(--color-primary);
+}
+
+.users-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--space-lg);
+}
+
+.no-users-message {
+  text-align: center;
+  padding: var(--space-2xl);
+  color: var(--color-text-muted);
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .booking-form {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+  
+  .booking-container {
+    padding: 0 var(--space-md);
+  }
+  
+  .users-grid {
+    grid-template-columns: 1fr;
+  }
+}

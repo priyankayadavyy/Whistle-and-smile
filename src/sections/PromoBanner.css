@@ -1,0 +1,38 @@
+.promo-banner {
+  margin-top: var(--header-height);
+  background: linear-gradient(90deg, var(--color-banner-start), var(--color-banner-end));
+  padding: 10px var(--space-lg);
+  text-align: center;
+}
+
+.promo-banner-text {
+  font-size: 14px;
+  color: var(--color-text-primary);
+  font-weight: 500;
+}
+
+.promo-banner-original {
+  text-decoration: line-through;
+  color: var(--color-text-secondary);
+  margin-right: 4px;
+}
+
+.promo-banner-price {
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.promo-banner-urgent {
+  font-weight: 600;
+  color: var(--color-primary-dark);
+}
+
+@media (max-width: 768px) {
+  .promo-banner {
+    padding: 8px var(--space-md);
+  }
+  
+  .promo-banner-text {
+    font-size: 12px;
+  }
+}
